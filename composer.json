@@ -17,7 +17,8 @@
         "symfony/framework-bundle": "7.1.*",
         "symfony/mime": "7.1.*",
         "symfony/runtime": "7.1.*",
-        "symfony/yaml": "7.1.*"
+        "symfony/yaml": "7.1.*",
+        "vich/uploader-bundle": "*"
     },
     "config": {
         "allow-plugins": {

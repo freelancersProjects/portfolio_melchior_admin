@@ -5,18 +5,24 @@ namespace App\Entity;
 use App\Repository\TContentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 #[ORM\Entity(repositoryClass: TContentRepository::class)]
 #[ORM\Table(name: 't_content')]
+#[Vich\Uploadable]
 class TContent
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id = null; 
 
     #[ORM\Column(length: 255)]
     private ?string $image_background = null;
+
+    #[Vich\UploadableField(mapping: 't_content_images', fileNameProperty: 'image_background')]
+    private ?File $image_background_file = null;   
 
     #[ORM\Column(length: 255)]
     private ?string $main_name = null;
@@ -27,8 +33,14 @@ class TContent
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description_bio = null;
 
+    #[Vich\UploadableField(mapping: 't_content_images', fileNameProperty: 'image_bio')]
+    private ?File $image_bio_file = null;
+
     #[ORM\Column(length: 255)]
     private ?string $image_bio = null;
+
+    #[Vich\UploadableField(mapping: 't_content_video', fileNameProperty: 'video_bio')]
+    private ?File $video_file = null;
 
     #[ORM\Column(length: 255)]
     private ?string $video_bio = null;
@@ -36,9 +48,31 @@ class TContent
     #[ORM\Column(length: 255)]
     private ?string $title_artwork = null;
 
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
+    private ?\DateTimeImmutable $updatedAt = null;
+
+    // Getters et Setters pour chaque propriété...
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getImageBackgroundFile(): ?File
+    {
+        return $this->image_background_file;
+    }
+
+    public function setImageBackgroundFile(?File $image_background_file = null): static
+    {
+        $this->image_background_file = $image_background_file;
+
+        if ($image_background_file) {
+            // Si vous souhaitez mettre à jour le champ `updatedAt` lors d'un nouvel upload
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+
+        return $this;
     }
 
     public function getImageBackground(): ?string
@@ -89,6 +123,22 @@ class TContent
         return $this;
     }
 
+    public function getImageBioFile(): ?File
+    {
+        return $this->image_bio_file;
+    }
+
+    public function setImageBioFile(?File $image_bio_file = null): static
+    {
+        $this->image_bio_file = $image_bio_file;
+
+        if ($image_bio_file) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+
+        return $this;
+    }
+
     public function getImageBio(): ?string
     {
         return $this->image_bio;
@@ -97,6 +147,22 @@ class TContent
     public function setImageBio(string $image_bio): static
     {
         $this->image_bio = $image_bio;
+
+        return $this;
+    }
+
+    public function getVideoFile(): ?File
+    {
+        return $this->video_file;
+    }
+
+    public function setVideoFile(?File $video_file = null): static
+    {
+        $this->video_file = $video_file;
+
+        if ($video_file) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
 
         return $this;
     }
