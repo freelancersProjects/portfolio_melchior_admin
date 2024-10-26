@@ -40,18 +40,18 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::section('Users');
-        yield MenuItem::linkToCrud('Users', 'fa fa-user', User::class);
+        yield MenuItem::section('Utilisateurs');
+        yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-user', User::class);
 
-        yield MenuItem::section('Contents');
-        yield MenuItem::linkToCrud('Contents', 'fa fa-file', TContent::class);
+        yield MenuItem::section('Contenus');
+        yield MenuItem::linkToCrud('Contenus', 'fa fa-file', TContent::class);
 
-        yield MenuItem::section('Artworks');
-        yield MenuItem::linkToCrud('Artworks', 'fa fa-image', TArtwork::class);
-        yield MenuItem::linkToCrud('Filters', 'fa fa-filter', TFilter::class);
+        yield MenuItem::section('Les œuvres');
+        yield MenuItem::linkToCrud('Les œuvres', 'fa fa-image', TArtwork::class);
+        yield MenuItem::linkToCrud('Les filtres', 'fa fa-filter', TFilter::class);
 
         yield MenuItem::section('Contacts');
-        yield MenuItem::linkToCrud('Contacts', 'fa fa-envelope', TContact::class);
+        yield MenuItem::linkToCrud('Demande de contacts', 'fa fa-envelope', TContact::class);
         
     }
 }
