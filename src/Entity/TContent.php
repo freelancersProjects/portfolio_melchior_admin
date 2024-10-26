@@ -16,13 +16,7 @@ class TContent
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null; 
-
-    #[ORM\Column(length: 255)]
-    private ?string $image_background = null;
-
-    #[Vich\UploadableField(mapping: 't_content_images', fileNameProperty: 'image_background')]
-    private ?File $image_background_file = null;   
+    private ?int $id = null;
 
     #[ORM\Column(length: 255)]
     private ?string $main_name = null;
@@ -56,35 +50,6 @@ class TContent
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getImageBackgroundFile(): ?File
-    {
-        return $this->image_background_file;
-    }
-
-    public function setImageBackgroundFile(?File $image_background_file = null): static
-    {
-        $this->image_background_file = $image_background_file;
-
-        if ($image_background_file) {
-            // Si vous souhaitez mettre à jour le champ `updatedAt` lors d'un nouvel upload
-            $this->updatedAt = new \DateTimeImmutable();
-        }
-
-        return $this;
-    }
-
-    public function getImageBackground(): ?string
-    {
-        return $this->image_background;
-    }
-
-    public function setImageBackground(string $image_background): static
-    {
-        $this->image_background = $image_background;
-
-        return $this;
     }
 
     public function getMainName(): ?string
