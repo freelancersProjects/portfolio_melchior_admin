@@ -57,6 +57,12 @@ class Artwork
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updated_at = null;
 
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $audio_artwork = null;
+
+    #[Vich\UploadableField(mapping: 't_content_audio', fileNameProperty: 'audio_artwork')]
+    private ?File $audio_artwork_file = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +80,18 @@ class Artwork
         return $this;
     }
 
+    public function getMainImage(): ?string
+    {
+        return $this->main_image;
+    }
+
+    public function setMainImage(string $main_image): static
+    {
+        $this->main_image = $main_image;
+
+        return $this;
+    }
+
     public function getMainImageFile(): ?File
     {
         return $this->main_image_file;
@@ -86,18 +104,6 @@ class Artwork
         if ($main_image_file) {
             $this->updated_at = new \DateTimeImmutable();
         }
-
-        return $this;
-    }
-
-    public function getMainImage(): ?string
-    {
-        return $this->main_image;
-    }
-
-    public function setMainImage(string $main_image): static
-    {
-        $this->main_image = $main_image;
 
         return $this;
     }
@@ -246,6 +252,34 @@ class Artwork
     public function setUpdatedAt(?\DateTimeImmutable $updated_at): static
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getAudioArtwork(): ?string
+    {
+        return $this->audio_artwork;
+    }
+
+    public function setAudioArtwork(?string $audio_artwork): static
+    {
+        $this->audio_artwork = $audio_artwork;
+
+        return $this;
+    }
+
+    public function getAudioArtworkFile(): ?File
+    {
+        return $this->audio_artwork_file;
+    }
+
+    public function setAudioArtworkFile(?File $audio_artwork_file = null): static
+    {
+        $this->audio_artwork_file = $audio_artwork_file;
+
+        if ($audio_artwork_file) {
+            $this->updated_at = new \DateTimeImmutable();
+        }
 
         return $this;
     }
