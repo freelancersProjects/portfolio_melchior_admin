@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\TFilter;
+use App\Entity\Contact;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<TFilter>
+ * @extends ServiceEntityRepository<Contact>
  */
-class TFilterRepository extends ServiceEntityRepository
+class ContactRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, TFilter::class);
+        parent::__construct($registry, Contact::class);
     }
 
     //    /**
-    //     * @return TFilter[] Returns an array of TFilter objects
+    //     * @return Contact[] Returns an array of Contact objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class TFilterRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?TFilter
+    //    public function findOneBySomeField($value): ?Contact
     //    {
     //        return $this->createQueryBuilder('t')
     //            ->andWhere('t.exampleField = :val')

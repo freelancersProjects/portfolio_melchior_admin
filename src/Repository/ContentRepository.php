@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\TContact;
+use App\Entity\Content;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<TContact>
+ * @extends ServiceEntityRepository<Content>
  */
-class TContactRepository extends ServiceEntityRepository
+class ContentRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, TContact::class);
+        parent::__construct($registry, Content::class);
     }
 
     //    /**
-    //     * @return TContact[] Returns an array of TContact objects
+    //     * @return Content[] Returns an array of Content objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class TContactRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?TContact
+    //    public function findOneBySomeField($value): ?Content
     //    {
     //        return $this->createQueryBuilder('t')
     //            ->andWhere('t.exampleField = :val')

@@ -2,16 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\TContentRepository;
+use App\Repository\ContentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
 
-#[ORM\Entity(repositoryClass: TContentRepository::class)]
+#[ORM\Entity(repositoryClass: ContentRepository::class)]
 #[ORM\Table(name: 't_content')]
 #[Vich\Uploadable]
-class TContent
+class Content
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

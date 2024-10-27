@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\TFilterRepository;
+use App\Repository\FilterRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: TFilterRepository::class)]
-#[ORM\Table(name: "t_filter")]class TFilter
+#[ORM\Entity(repositoryClass: FilterRepository::class)]
+#[ORM\Table(name: "t_filter")]class Filter
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -19,14 +19,14 @@ use Doctrine\ORM\Mapping as ORM;
     private ?string $name_filter = null;
 
     /**
-     * @var Collection<int, TArtwork>
+     * @var Collection<int, Artwork>
      */
-    #[ORM\OneToMany(targetEntity: TArtwork::class, mappedBy: 'filter')]
-    private Collection $tArtworks;
+    #[ORM\OneToMany(targetEntity: Artwork::class, mappedBy: 'filter')]
+    private Collection $artworks;
 
     public function __construct()
     {
-        $this->tArtworks = new ArrayCollection();
+        $this->artworks = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -47,29 +47,29 @@ use Doctrine\ORM\Mapping as ORM;
     }
 
     /**
-     * @return Collection<int, TArtwork>
+     * @return Collection<int, Artwork>
      */
-    public function getTArtworks(): Collection
+    public function getArtworks(): Collection
     {
-        return $this->tArtworks;
+        return $this->artworks;
     }
 
-    public function addTArtwork(TArtwork $tArtwork): static
+    public function addArtwork(Artwork $artwork): static
     {
-        if (!$this->tArtworks->contains($tArtwork)) {
-            $this->tArtworks->add($tArtwork);
-            $tArtwork->setFilter($this);
+        if (!$this->artworks->contains($artwork)) {
+            $this->artworks->add($artwork);
+            $artwork->setFilter($this);
         }
 
         return $this;
     }
 
-    public function removeTArtwork(TArtwork $tArtwork): static
+    public function removeArtwork(Artwork $artwork): static
     {
-        if ($this->tArtworks->removeElement($tArtwork)) {
+        if ($this->artworks->removeElement($artwork)) {
             // set the owning side to null (unless already changed)
-            if ($tArtwork->getFilter() === $this) {
-                $tArtwork->setFilter(null);
+            if ($artwork->getFilter() === $this) {
+                $artwork->setFilter(null);
             }
         }
 

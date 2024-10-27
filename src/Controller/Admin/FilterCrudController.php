@@ -2,17 +2,14 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\TContact;
+use App\Entity\Filter;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class TContactCrudController extends AbstractCrudController
+class FilterCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return TContact::class;
+        return Filter::class;
     }
 
     /*

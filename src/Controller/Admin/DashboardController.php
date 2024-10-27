@@ -9,10 +9,10 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\User;
-use App\Entity\TContent;
-use App\Entity\TArtwork;
-use App\Entity\TFilter;
-use App\Entity\TContact;
+use App\Entity\Content;
+use App\Entity\Artwork;
+use App\Entity\Filter;
+use App\Entity\Contact;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -44,14 +44,14 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-user', User::class);
 
         yield MenuItem::section('Contenus');
-        yield MenuItem::linkToCrud('Contenus', 'fa fa-file', TContent::class);
+        yield MenuItem::linkToCrud('Contenus', 'fa fa-file', Content::class);
 
         yield MenuItem::section('Les œuvres');
-        yield MenuItem::linkToCrud('Les œuvres', 'fa fa-image', TArtwork::class);
-        yield MenuItem::linkToCrud('Les filtres', 'fa fa-filter', TFilter::class);
+        yield MenuItem::linkToCrud('Les œuvres', 'fa fa-image', Artwork::class);
+        yield MenuItem::linkToCrud('Les filtres', 'fa fa-filter', Filter::class);
 
         yield MenuItem::section('Contacts');
-        yield MenuItem::linkToCrud('Demande de contacts', 'fa fa-envelope', TContact::class);
+        yield MenuItem::linkToCrud('Demande de contacts', 'fa fa-envelope', Contact::class);
         
     }
 }
