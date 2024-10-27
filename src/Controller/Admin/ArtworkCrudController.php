@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ArtworkCrudController extends AbstractCrudController
@@ -23,6 +24,12 @@ class ArtworkCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('title', 'Titre de l\'oeuvre')
+                ->setRequired(true),
+
+            TextField::new('audio_artwork_file', 'Audio de l\'oeuvre')
+                ->setFormType(VichFileType::class)
+                ->setFormTypeOptions(['allow_delete' => false, 'download_uri' => false, 'asset_helper' => true])
+                ->hideOnIndex()
                 ->setRequired(true),
 
             TextField::new('main_image_file', 'Image principale')

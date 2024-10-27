@@ -10,4 +10,5 @@
 /vendor/
 .vscode/
 /migrations/
+/public/uploads/
 ###< symfony/framework-bundle ###
