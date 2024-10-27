@@ -9,7 +9,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\User;
-use App\Entity\Content;
 use App\Entity\Artwork;
 use App\Entity\Filter;
 use App\Entity\Contact;
@@ -17,9 +16,7 @@ use App\Entity\Contact;
 class DashboardController extends AbstractDashboardController
 {
 
-    public function __construct(private AdminUrlGenerator $adminUrlGenerator)
-    {
-    }
+    public function __construct(private AdminUrlGenerator $adminUrlGenerator) {}
 
     #[Route('/admin', name: 'admin')]
     public function index(): Response
@@ -43,8 +40,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Utilisateurs');
         yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-user', User::class);
 
-        yield MenuItem::section('Contenus');
-        yield MenuItem::linkToCrud('Contenus', 'fa fa-file', Content::class);
+        yield MenuItem::section('Contenu');
+        yield MenuItem::linkToRoute('Contenu', 'fa fa-file', 'admin_content_redirect');
 
         yield MenuItem::section('Les œuvres');
         yield MenuItem::linkToCrud('Les œuvres', 'fa fa-image', Artwork::class);
@@ -52,6 +49,5 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::section('Contacts');
         yield MenuItem::linkToCrud('Demande de contacts', 'fa fa-envelope', Contact::class);
-        
     }
 }
