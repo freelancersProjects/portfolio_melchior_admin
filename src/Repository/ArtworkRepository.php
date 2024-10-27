@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\TArtwork;
+use App\Entity\Artwork;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<TArtwork>
+ * @extends ServiceEntityRepository<Artwork>
  */
-class TArtworkRepository extends ServiceEntityRepository
+class ArtworkRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, TArtwork::class);
+        parent::__construct($registry, Artwork::class);
     }
 
     //    /**
-    //     * @return TArtwork[] Returns an array of TArtwork objects
+    //     * @return Artwork[] Returns an array of Artwork objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class TArtworkRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?TArtwork
+    //    public function findOneBySomeField($value): ?Artwork
     //    {
     //        return $this->createQueryBuilder('t')
     //            ->andWhere('t.exampleField = :val')

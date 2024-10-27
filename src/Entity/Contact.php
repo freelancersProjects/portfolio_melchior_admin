@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\TContactRepository;
+use App\Repository\ContactRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: TContactRepository::class)]
+#[ORM\Entity(repositoryClass: ContactRepository::class)]
 #[ORM\Table(name: 't_contact')]
-class TContact
+class Contact
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

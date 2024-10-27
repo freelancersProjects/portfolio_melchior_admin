@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\TContent;
+use App\Entity\Filter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<TContent>
+ * @extends ServiceEntityRepository<Filter>
  */
-class TContentRepository extends ServiceEntityRepository
+class FilterRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, TContent::class);
+        parent::__construct($registry, Filter::class);
     }
 
     //    /**
-    //     * @return TContent[] Returns an array of TContent objects
+    //     * @return Filter[] Returns an array of Filter objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class TContentRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?TContent
+    //    public function findOneBySomeField($value): ?Filter
     //    {
     //        return $this->createQueryBuilder('t')
     //            ->andWhere('t.exampleField = :val')
