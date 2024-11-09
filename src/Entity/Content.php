@@ -109,7 +109,7 @@ class Content
         return $this->image_bio;
     }
 
-    public function setImageBio(string $image_bio): static
+    public function setImageBio(?string $image_bio): self
     {
         $this->image_bio = $image_bio;
 

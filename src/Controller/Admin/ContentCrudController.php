@@ -62,8 +62,7 @@ class ContentCrudController extends AbstractCrudController
             TextField::new('image_bio_file', 'Image de la biographie')
                 ->setFormType(VichImageType::class)
                 ->setFormTypeOptions(['allow_delete' => false, 'download_uri' => false, 'image_uri' => true, 'asset_helper' => true])
-                ->hideOnIndex()
-                ->setRequired(true),
+                ->hideOnIndex(),
             TextField::new('video_bio', 'Vidéo de la biographie')
                 ->setRequired(true),
             TextField::new('title_artwork', 'Titre de l\'oeuvre')

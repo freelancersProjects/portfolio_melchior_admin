@@ -85,7 +85,7 @@ class Artwork
         return $this->main_image;
     }
 
-    public function setMainImage(string $main_image): static
+    public function setMainImage(?string $main_image): self
     {
         $this->main_image = $main_image;
 

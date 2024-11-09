@@ -29,14 +29,17 @@ class ArtworkCrudController extends AbstractCrudController
             TextField::new('audio_artwork_file', 'Audio de l\'oeuvre')
                 ->setFormType(VichFileType::class)
                 ->setFormTypeOptions(['allow_delete' => false, 'download_uri' => false, 'asset_helper' => true])
-                ->hideOnIndex()
-                ->setRequired(true),
+                ->hideOnIndex(),
 
             TextField::new('main_image_file', 'Image principale')
                 ->setFormType(VichImageType::class)
-                ->setFormTypeOptions(['allow_delete' => false, 'download_uri' => false, 'image_uri' => true, 'asset_helper' => true])
-                ->hideOnIndex()
-                ->setRequired(true),
+                ->setFormTypeOptions([
+                    'allow_delete' => false, 
+                    'download_uri' => false, 
+                    'image_uri' => true, 
+                    'asset_helper' => true,
+                ])
+                ->hideOnIndex(),
 
             AssociationField::new('filter', 'Filtre')
                 ->setRequired(true),
@@ -70,6 +73,7 @@ class ArtworkCrudController extends AbstractCrudController
         $artwork = new Artwork();
         $artwork->setDate(new \DateTime());
 
+        
         return $artwork;
     }
 }
