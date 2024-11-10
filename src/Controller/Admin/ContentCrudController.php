@@ -59,6 +59,8 @@ class ContentCrudController extends AbstractCrudController
                 ->setRequired(true),
             TextEditorField::new('description_bio', 'Description de la biographie')
                 ->setRequired(true),
+            TextEditorField::new('description_bio_en', 'Description de la biographie en anglais')
+                ->setRequired(true),
             TextField::new('image_bio_file', 'Image de la biographie')
                 ->setFormType(VichImageType::class)
                 ->setFormTypeOptions(['allow_delete' => false, 'download_uri' => false, 'image_uri' => true, 'asset_helper' => true])

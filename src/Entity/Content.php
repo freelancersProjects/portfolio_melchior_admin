@@ -45,6 +45,9 @@ class Content
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description_bio_en = null;
+
     // Getters et Setters pour chaque propriété...
 
     public function getId(): ?int
@@ -152,6 +155,18 @@ class Content
     public function setTitleArtwork(string $title_artwork): static
     {
         $this->title_artwork = $title_artwork;
+
+        return $this;
+    }
+
+    public function getDescriptionBioEn(): ?string
+    {
+        return $this->description_bio_en;
+    }
+
+    public function setDescriptionBioEn(?string $description_bio_en): static
+    {
+        $this->description_bio_en = $description_bio_en;
 
         return $this;
     }
