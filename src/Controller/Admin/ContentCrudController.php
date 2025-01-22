@@ -54,7 +54,6 @@ class ContentCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('main_name', 'Nom principal')
-                ->setRequired(true),
             TextField::new('title_bio', 'Titre de la biographie')
                 ->setRequired(true),
             TextEditorField::new('description_bio', 'Description de la biographie')
